@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>MINI BLOG</title>
+</head>
+<body> 
+  <div class="container-fluid bg-dark">
+    {% include 'blog/navbar.html' %}      
+  </div> 
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        {% block msg %}  
+        {% endblock msg %}  
+      </div>
+    </div>
+    <div class="row">
+      {% block side %}
+      {% endblock side %}
+ 
+      {% block content %}
+      {% endblock content %}
+    </div>
+  </div> 
+
+ <script src="{% static 'blog/js/bootstarp.js' %}"></script>
+ <script src="{% static 'blog/js/jquery.js' %}"></script>  
+ <script type="text/javascript">
+  var likeCount = document.querySelector('#likeCount');
+  var dislikeCount = document.querySelector('#dislikeCount');
+
+  function count() {
+    likeCount.value = parseInt(likeCount.value) + 1;
+  }
+
+  function count1() {
+    dislikeCount.value = parseInt(dislikeCount.value) + 1;
+  }
+
+
+
+/*  $(document).ready(function (e) {
+    $(document).on('click', '#like-button', function (e) {
+        e.preventDefault();
+        var pk = $(this).attr('value');
+        $.ajax({
+            type: 'POST',
+            url: "/likepost",
+            data: {
+                'post_id': pk, 
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+                action: 'post'
+            },
+            success: function (json) {
+                document.getElementById("like_count").innerHTML = json['result']
+                console.log(json)  
+            },
+            error: function (xhr, errmsg, err) {
+                
+            }
+        });
+        
+    });
+    });
+*/
+ </script>
+</body>
+</html>

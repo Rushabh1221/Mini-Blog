@@ -1,0 +1,38 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="row">
+
+  <div class="col-sm-7 mt-4">
+    <img src="{% static 'blog\imgs\aboutimg3.jpg' %}" alt="NoImg">
+  </div>
+
+  <div class="col-sm-4 text-center text-dark m-2 p-3">
+    <h3>About US</h3>
+    <ul class="list-styled"> 
+      <li class="text-justify">This Mini-Blog website is basically used for posting  meaningful content or information about anything
+      like any technology, any news related to different fields, particular and specific info about that can help 
+      everyone. 
+      </li>
+      <li class="text-justify">You can read and show all types of posts here and also you can update your existing post also. But if you
+      post here anything like any vulgar, harmful and any improper post or content then your post as well as your acoount
+      would be terminated by admin on this site. 
+      </li>
+   </ul> 
+
+   <h4 class="text-center">Know more about US on</h4>
+   <div class="text-center">
+    <ul class="list-group list-group-horizontal justify-content-center">
+      <li class="list-group-item"><a href="#"><img src="{% static 'blog/imgs/facebook.svg' %}" alt=""></a></li>
+      <li class="list-group-item"><a href="#"><img src="{% static 'blog/imgs/twitter.svg' %}" alt=""></a></li>
+      <li class="list-group-item"><a href="#"><img src="{% static 'blog/imgs/instagram.svg' %}" alt=""></a></li>
+      <li class="list-group-item"><a href="#"><img src="{% static 'blog/imgs/dribble.svg' %}" alt=""></a></li>
+    </ul>
+   </div>
+
+  </div>
+  
+</div>
+ 
+{% endblock content %}

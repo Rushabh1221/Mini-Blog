@@ -1,0 +1,53 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block content %}
+
+<center>
+<div class="col-sm-10">
+  <h3 class="text-dark my-3">Posts</h3> 
+  {% for post in posts %} 
+    <div class="jumbotron jumbotron-fluid shadow p-5 border border-secondary rounded">
+      <div class="container text-dark text-justify">
+        <h1 class="display-4 fw-bold">{{post.title}}</h1>
+        <hr>
+        <p class="lead">{{post.disc}}</p>
+        {% if request.user.is_authenticated %} 
+        <h6 class="float-right">Author: {{ post.user.get_username }}</h6>
+        {% endif %}
+      
+      </div>
+    </div>
+   {% endfor %} 
+</div>  
+</center>
+{% endblock content %}
+
+<!-- Original
+<div class="container">
+  <h3 class="text-center font-weight-bold my-2 text-dark">POSTS <i class="fa fa-sticky-note-o" aria-hidden="true"></i></h3>
+
+    <div class="row d-flex justify-content-center">
+      {% for post in posts %}  
+ 
+      <div class="col-sm-8 m-2 shadow p-2 text-dark">
+       <div class="card">
+
+       <div class="card-body bg-light text-justify">
+        <h3>{{post.title}}</h3> 
+        <hr>
+        <p>{{post.disc}}</p>
+        <h6 class="float-right">Author: {{ request.user }}</h6> 
+       </div>
+
+      </div>
+     </div>
+ 
+      {% endfor %}
+    </div>  
+
+</div>
+
+For like and dislike:
+<i onclick="count()" class="fa fa-thumbs-o-up"></i> <input id="likeCount" type="number" value="0">
+<i onclick="count1()" class="fa fa-thumbs-o-down"></i> <input id="dislikeCount" type="number" value="0"> 
+-->

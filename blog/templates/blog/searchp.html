@@ -1,0 +1,31 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="col-sm-10">
+  {% if searched %}  
+  <h3 class="text-dark my-3">You've Searched for {{searched}} related posts</h3> 
+  {% for post in posts %} 
+    <div class="jumbotron jumbotron-fluid shadow p-5 border border-secondary rounded">
+      <div class="container text-dark text-justify">
+        <h1 class="display-4 fw-bold">{{post.title}}</h1>
+        <hr>
+        <p class="lead">{{post.disc}}</p>
+        {% if request.user.is_authenticated %} 
+        <h6 class="float-right">Author: {{ post.user.get_username }}</h6>
+        {% endif %}
+        
+        <i onclick="count()" class="fa fa-thumbs-o-up"></i> <input id="likeCount" type="number" value="0">
+        <i onclick="count1()" class="fa fa-thumbs-o-down"></i> <input id="dislikeCount" type="number" value="0"> 
+      </div>
+    </div>
+   {% endfor %} 
+   {% else %}
+   <div class="text-center">
+       <h3>Hey! You forgot to Search post..</h3>
+   </div>
+   {% endif %}
+</div>  
+
+{% endblock content %}
